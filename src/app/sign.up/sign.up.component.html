@@ -1,0 +1,31 @@
+<p-dialog [(visible)]="displayDialog"
+          [modal]="true"
+          [style]="{ width: '50vw' }"
+          [draggable]="false"
+          [resizable]="false"
+          (onHide)="onHideDialog()">
+  <p-header>
+    {{title}}
+  </p-header>
+  Welcome,
+  It only takes a few seconds to create your account
+  <div class="field">
+    <label for="email">Email</label>
+    <span class="p-float-label">
+    <input id="email" type="email"
+           class="text-ba0se text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+      <label htmlFor="username">Username</label>
+    </span>
+  </div>
+  <div class="field">
+    <label for="username">Username</label>
+    <input id="username" type="text"
+           class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+  </div>
+  <div class="field">
+    <label for="password">password</label>
+    <input id="password" type="password"
+           class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+  </div>
+
+</p-dialog>

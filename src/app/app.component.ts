@@ -8,15 +8,31 @@ import {PrimeNGConfig} from 'primeng/api';
 })
 export class AppComponent implements OnInit
 {
-  displayDialog: boolean = false;
+  displaySignInDialog: boolean = false;
+  displaySignUpDialog: boolean = false;
 
   constructor(private primengConfig: PrimeNGConfig)
   {
   }
 
-  public showDialog(): void
+  public onShowSignInDialog(): void
   {
-    this.displayDialog = true;
+    this.displaySignInDialog = true;
+  }
+
+  public onCloseSignInDialog(): void
+  {
+    this.displaySignInDialog = false;
+  }
+
+  public onShowSignUpDialog(): void
+  {
+    this.displaySignUpDialog = true;
+  }
+
+  public onCloseSignUpDialog(): void
+  {
+    this.displaySignUpDialog = false;
   }
 
   public ngOnInit(): void

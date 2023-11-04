@@ -5,9 +5,10 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {ButtonModule} from "primeng/button";
-import {NewUserModule} from "./new.user/new.user.module";
+import {SignUpModule} from "./sign.up/sign.up.module";
 import {CommonModule, NgOptimizedImage} from "@angular/common";
 import {FormsModule} from "@angular/forms";
+import {SignInModule} from "./sign.in/sign.in.module";
 
 
 @NgModule({
@@ -19,11 +20,13 @@ import {FormsModule} from "@angular/forms";
     BrowserAnimationsModule,
     FormsModule,
     ButtonModule,
-    NewUserModule,
+    SignUpModule,
+    SignInModule,
     AppRoutingModule, NgOptimizedImage
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule {
+export class AppModule
+{
 }
