@@ -1,0 +1,17 @@
+<div class="block bg-primary font-bold text-center p-4 border-round mb-3">1</div>
+<div class="flex align-items-center justify-content-start">
+  <div class="hidden w-4rem h-4rem bg-primary font-bold p-4 border-round mr-3">1</div>
+  <div class="w-4rem h-4rem bg-primary font-bold flex align-items-center justify-content-center p-4 border-round mr-3">2</div>
+  <div class="w-4rem h-4rem bg-primary font-bold flex align-items-center justify-content-center p-4 border-round">3</div>
+</div>
+<div class="top-nav-bar flex grid fixed min-w-screen w-screen surface-section">
+  <a href="/" class="top-nav-bar__home font-light">
+    <img img="assets/reddit.png" alt="ehm-dee-chat icon" style="width: 35px;">
+
+  </a>
+  <span style="text-decoration: none">MdChat</span>
+</div>
+
+<p-button label="SIgn In" (onClick)="showDialog()"></p-button>
+
+<new-user-component [displayDialog]="displayDialog" (onClose)="displayDialog=!$event"></new-user-component>

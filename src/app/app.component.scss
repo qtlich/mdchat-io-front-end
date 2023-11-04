@@ -1,0 +1,18 @@
+.top-nav-bar {
+  height: 3rem;
+  max-height: 3rem;
+}
+
+$sz_3xl: 1.75rem;
+
+.top-nav-bar__home {
+  align-items: stretch;
+  display: inline-block;
+  text-decoration: none;
+  color: white;
+  font-size: $sz_3xl;
+}
+
+.top-nav-bar__home span {
+  margin-left: 1rem;
+}
