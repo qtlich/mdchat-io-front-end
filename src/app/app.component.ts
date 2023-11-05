@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {PrimeNGConfig} from 'primeng/api';
+import {MenuItem, PrimeNGConfig} from 'primeng/api';
+import {HttpClient} from "@angular/common/http";
 
 @Component({
   selector: 'app-root',
@@ -10,9 +11,12 @@ export class AppComponent implements OnInit
 {
   displaySignInDialog: boolean = false;
   displaySignUpDialog: boolean = false;
+  public menuItems: MenuItem[] = [];
 
-  constructor(private primengConfig: PrimeNGConfig)
+  constructor(private primengConfig: PrimeNGConfig,
+              private _http: HttpClient)
   {
+    this.testApi();
   }
 
   public onShowSignInDialog(): void
@@ -28,6 +32,14 @@ export class AppComponent implements OnInit
   public onShowSignUpDialog(): void
   {
     this.displaySignUpDialog = true;
+  }
+
+  public testApi(): void
+  {
+    this._http.get(`http://192.168.1.60:8080/json`).subscribe(data =>
+    {
+      console.log(data);
+    });
   }
 
   public onCloseSignUpDialog(): void

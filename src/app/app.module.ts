@@ -9,6 +9,8 @@ import {SignUpModule} from "./sign.up/sign.up.module";
 import {CommonModule, NgOptimizedImage} from "@angular/common";
 import {FormsModule} from "@angular/forms";
 import {SignInModule} from "./sign.in/sign.in.module";
+import {PanelMenuModule} from "primeng/panelmenu";
+import {HttpClientModule} from "@angular/common/http";
 
 
 @NgModule({
@@ -18,12 +20,14 @@ import {SignInModule} from "./sign.in/sign.in.module";
   imports: [BrowserModule,
     CommonModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     FormsModule,
     ButtonModule,
     SignUpModule,
     SignInModule,
-    AppRoutingModule, NgOptimizedImage
-  ],
+    AppRoutingModule,
+    NgOptimizedImage,
+    PanelMenuModule],
   providers: [],
   bootstrap: [AppComponent]
 })

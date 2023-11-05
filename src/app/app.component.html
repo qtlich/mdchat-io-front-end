@@ -1,4 +1,3 @@
-
 <!--<div class="block bg-top text-right p-4 border-round mb-3">1</div>-->
 <!--<div class="flex align-items-center justify-content-start">-->
 <!--  <div class="hidden w-4rem h-4rem bg-primary font-bold p-4 border-round mr-3">1</div>-->
@@ -15,13 +14,28 @@
 <!--</div>-->
 
 <div class="grid">
-  <div class="col-12">
-    <p-button label="Sign In" (onClick)="onShowSignInDialog()"></p-button>
+  <div class="col-10 "></div>
+  <div class="col-2 right-auto">
+    <p-button label="Login" (onClick)="onShowSignInDialog()"></p-button>
+    <p-button label="Register" (onClick)="onShowSignUpDialog()"></p-button>
   </div>
-  <div class="col-12">
-    <p-button label="Sign Up" (onClick)="onShowSignUpDialog()"></p-button>
+  <!-- BEGIN: Left side -->
+  <div class="col-3">
+<!--    <p-panelMenu [model]="menuItems" [style]="{'width':'300px'}" [multiple]="true"></p-panelMenu>-->
   </div>
+  <!-- END: Left side -->
+  <!-- BEGIN: Center side -->
+  <div class="col-6">
+
+  </div>
+  <!-- END: Center side -->
+  <!-- BEGIN: RIght side -->
+  <div class="col-3">
+
+  </div>
+  <!-- END: Right side -->
+
 </div>
 
-<sign-up-component [displayDialog]="displaySignInDialog" (onClose)="displaySignInDialog=!$event"></sign-up-component>
-<sign-in-component [displayDialog]="displaySignInDialog" (onClose)="displaySignInDialog=!$event"></sign-in-component>
+<sign-up-component [displayDialog]="displaySignUpDialog" (onClose)="onCloseSignUpDialog()"></sign-up-component>
+<sign-in-component [displayDialog]="displaySignInDialog" (onClose)="onCloseSignInDialog()"></sign-in-component>

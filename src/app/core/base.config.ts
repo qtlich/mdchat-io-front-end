@@ -1,43 +1,19 @@
 import {Input} from "@angular/core";
-import {MenuItem} from "primeng/primeng";
-import {FieldType} from "../models/table.columns.model";
 import {isNullOrUndefined} from "./core.free.functions";
-import {
-  maxCountRowsForScroll,
-  pageLinks,
-  rowsPerPageOptions,
-  styleOfButtons,
-  uaLocale,
-  yearRange
-} from "./core.free.constants";
+import {pageLinks, rowsPerPageOptions, uaLocale, yearRange} from "./core.free.constants";
+import {MenuItem} from "primeng/api";
 
 /**
  * Базовий клас для завантаження
  * налаштувань та загальних змінних
  */
-export abstract class BaseConfig {
+export abstract class BaseConfig
+{
   public blockButton: boolean = false;
-  /**
-   * Стиль для звичайної кнопки
-   */
-  buttonClass: string = styleOfButtons[1];
-  /**
-   * Стиль для кнопки видалення
-   */
-  // buttonDeleteClass: string            = styleOfButtons[5];
   /**
    * Контекстне меню
    */
-  public contextMenuItems: MenuItem[];
-  /**
-   * Поточний відкритий період
-   */
-  currentOpenPeriod: string = null;
-  /**
-   * Тип поля
-   * @type {FieldType}
-   */
-  fieldType = FieldType;
+  public contextMenuItems: MenuItem[] = [];
   /**
    * У разі необхідності можна використовувати для видимості компоненту
    */
@@ -46,32 +22,20 @@ export abstract class BaseConfig {
    * Статус завантаження
    */
   public loading: boolean = false;
-  /**
-   * Максимальная кількість рядків для використання скролу
-   */
-  public maxCountRowsForScroll: number = maxCountRowsForScroll;
+
   public pageLinks = pageLinks;
   /**
    * У разі необхідності виводимо дані лише в режимі тільки перегляд
    */
   @Input() readOnly: boolean = false;
   /**
-   * Налаштування кількості рядків для відображення при використанні пагінатора для таблиці
-   * @type {number[]}
-   */
-  public rowsPerPageOptions: number[] = rowsPerPageOptions;
-  /**
    * Локаль для календаря
    */
   public ua = uaLocale;
   /**
-   * Період років для календаря
-   */
-  public yearRange: string = yearRange;
-  /**
    * текст повідомлення для компонента common-ui-blockUI
    */
-  public operationMessage: string;
+  public operationMessage: string = "";
 
   // *********************************************************************************************
   protected constructor(/**
@@ -80,19 +44,23 @@ export abstract class BaseConfig {
                          * @protected
                          * @type{string}
                          */
-                        protected storageName?: string) {
-    if (isNullOrUndefined(this.storageName)) {
+                        protected storageName?: string)
+  {
+    if (isNullOrUndefined(this.storageName))
+    {
       this.storageName = this.constructor.name;
     }
   }
 
   //*********************************************************************************************
-  protected addContextMenuItem(item: MenuItem): void {
+  protected addContextMenuItem(item: MenuItem): void
+  {
     this.contextMenuItems.push(item);
   }
 
   //*********************************************************************************************
-  protected clearContextMenu(): void {
+  protected clearContextMenu(): void
+  {
     this.contextMenuItems = [];
   }
 
@@ -100,12 +68,14 @@ export abstract class BaseConfig {
   /**
    * Закінчення завантаження даних
    */
-  protected endLoading(): void {
+  protected endLoading(): void
+  {
     this.loading = false;
   }
 
   //*********************************************************************************************
-  protected setBlockButton(value: boolean = true): void {
+  protected setBlockButton(value: boolean = true): void
+  {
     this.blockButton = value;
   }
 
@@ -114,7 +84,8 @@ export abstract class BaseConfig {
    * Встановити назву для сховища
    * @param {string} name
    */
-  protected setStorageName(name: string): void {
+  protected setStorageName(name: string): void
+  {
     this.storageName = name + "StorageName";
   }
 
@@ -122,10 +93,12 @@ export abstract class BaseConfig {
   /**
    * Початок завантаження даних
    */
-  protected startLoading(message?: string): void {
+  protected startLoading(message?: string): void
+  {
 
     this.loading = true;
-    if (message) {
+    if (message)
+    {
       this.operationMessage = message
     }
   }

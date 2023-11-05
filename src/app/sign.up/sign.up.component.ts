@@ -14,12 +14,23 @@ export class SignUpComponent
   @Output() onClose: EventEmitter<boolean> = new EventEmitter();
   public sD: SignUpScreenDataModel = new SignUpScreenDataModel();
 
-  public onHideDialog(): void {
+  public onHideDialog(): void
+  {
     this.onClose.emit(true);
   }
 
-  constructor() {
-
+  constructor()
+  {
+    this.title = "Register";
   }
 
+  public onCloseClick(): void
+  {
+    this.displayDialog = false;
+  }
+
+  public onRegisterClick(): void
+  {
+    this.displayDialog = false;
+  }
 }

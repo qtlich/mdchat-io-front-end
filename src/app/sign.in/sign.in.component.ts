@@ -13,12 +13,24 @@ export class SignInComponent
   @Output() onClose: EventEmitter<boolean> = new EventEmitter();
   public sD: SignInScreenDataModel = new SignInScreenDataModel();
 
-  public onHideDialog(): void {
+  constructor()
+  {
+    this.title = "Login";
+  }
+
+  public onHideDialog(): void
+  {
     this.onClose.emit(true);
   }
 
-  constructor() {
+  public onCloseClick(): void
+  {
+    this.displayDialog = false;
+  }
 
+  public onLoginClick(): void
+  {
+    this.displayDialog = false;
   }
 
 }
