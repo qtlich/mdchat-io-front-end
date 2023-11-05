@@ -1,4 +1,4 @@
-import {NgModule} from '@angular/core';
+import {APP_INITIALIZER, NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
@@ -11,6 +11,8 @@ import {FormsModule} from "@angular/forms";
 import {SignInModule} from "./sign.in/sign.in.module";
 import {PanelMenuModule} from "primeng/panelmenu";
 import {HttpClientModule} from "@angular/common/http";
+import {initializer} from "./app.init";
+import {AppConfigService} from "./services/global/app.config.service";
 
 
 @NgModule({
@@ -28,7 +30,15 @@ import {HttpClientModule} from "@angular/common/http";
     AppRoutingModule,
     NgOptimizedImage,
     PanelMenuModule],
-  providers: [],
+  providers: [
+    // AppConfigService,
+    // {
+    //   provide: APP_INITIALIZER,
+    //   useFactory: initializer,
+    //   multi: true,
+    //   deps: [AppConfigService]
+    // },
+    ],
   bootstrap: [AppComponent]
 })
 export class AppModule

@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {MenuItem, PrimeNGConfig} from 'primeng/api';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 
 @Component({
   selector: 'app-root',
@@ -36,7 +36,8 @@ export class AppComponent implements OnInit
 
   public testApi(): void
   {
-    this._http.get(`http://192.168.1.60:8080/json`).subscribe(data =>
+    this._http.get(`http://192.168.1.60:4200/json`).subscribe(data =>
+    // this._http.get(`http://192.168.1.60:4200/json`, httpOptions).subscribe(data =>
     {
       console.log(data);
     });

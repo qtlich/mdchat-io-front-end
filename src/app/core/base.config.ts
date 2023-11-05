@@ -1,13 +1,13 @@
-import {Input} from "@angular/core";
-import {isNullOrUndefined} from "./core.free.functions";
-import {pageLinks, rowsPerPageOptions, uaLocale, yearRange} from "./core.free.constants";
+import {uaLocale} from "./core.free.constants";
 import {MenuItem} from "primeng/api";
+import {BaseMessage} from "./base.message";
+import {GlobalBusService} from "../services/global/global.bus.service";
 
 /**
  * Базовий клас для завантаження
  * налаштувань та загальних змінних
  */
-export abstract class BaseConfig
+export abstract class BaseConfig extends BaseMessage
 {
   public blockButton: boolean = false;
   /**
@@ -17,46 +17,28 @@ export abstract class BaseConfig
   /**
    * У разі необхідності можна використовувати для видимості компоненту
    */
-  @Input() isVisible: boolean = false;
+  public isVisible: boolean = false;
   /**
    * Статус завантаження
    */
   public loading: boolean = false;
-
-  public pageLinks = pageLinks;
   /**
    * У разі необхідності виводимо дані лише в режимі тільки перегляд
    */
-  @Input() readOnly: boolean = false;
+  public readOnly: boolean = false;
   /**
    * Локаль для календаря
    */
   public ua = uaLocale;
-  /**
-   * текст повідомлення для компонента common-ui-blockUI
-   */
-  public operationMessage: string = "";
+  //
+  protected storageName: string ="";
 
   // *********************************************************************************************
-  protected constructor(/**
-                         * Назва сховища для компонента
-                         * Зазвичай це назва класу компоненту + StorageName
-                         * @protected
-                         * @type{string}
-                         */
-                        protected storageName?: string)
+  protected constructor(serviceBus: GlobalBusService)
   {
-    if (isNullOrUndefined(this.storageName))
-    {
-      this.storageName = this.constructor.name;
-    }
+    super(serviceBus);
   }
 
-  //*********************************************************************************************
-  protected addContextMenuItem(item: MenuItem): void
-  {
-    this.contextMenuItems.push(item);
-  }
 
   //*********************************************************************************************
   protected clearContextMenu(): void
@@ -65,9 +47,6 @@ export abstract class BaseConfig
   }
 
   //*********************************************************************************************
-  /**
-   * Закінчення завантаження даних
-   */
   protected endLoading(): void
   {
     this.loading = false;
@@ -80,19 +59,12 @@ export abstract class BaseConfig
   }
 
   //*********************************************************************************************
-  /**
-   * Встановити назву для сховища
-   * @param {string} name
-   */
   protected setStorageName(name: string): void
   {
     this.storageName = name + "StorageName";
   }
 
   //*********************************************************************************************
-  /**
-   * Початок завантаження даних
-   */
   protected startLoading(message?: string): void
   {
 

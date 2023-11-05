@@ -1,0 +1,7 @@
+{
+  "title": "MdChatIO",
+  "debug": false,
+  "api": {
+    "apiUrl:"http://192.168.1.60:4200/"
+  }
+}

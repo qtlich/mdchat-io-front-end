@@ -1,19 +1,13 @@
 export class ConfigFileModel
 {
-  public api: APIConfig = new APIConfig();
-  public debug: boolean = false;
   public title: string = "";
-  public version: Version = new Version();
+  public debug: boolean = false;
+  public api: APIConfig = new APIConfig();
 }
 
-export class Version
-{
-  public isTest: boolean = false;
-}
 
 export class APIConfig
 {
-  public apiUrl: string = "";
-  public baseApiUrl: string = "";
+  public apiUrl: string = "http://192.168.1.60:4200/";
 }
 

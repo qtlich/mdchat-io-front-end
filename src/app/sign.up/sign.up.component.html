@@ -11,23 +11,26 @@
   </p-header>
 
   <div class="grid">
+
     <div class="col-12">
       <div class="field">
-        <label for="email">Email</label>
+        <label for="username">Username</label>
         <input
-          class="text-ba0se text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
-          id="email"
-          placeholder="Enter email"
-          type="email">
+          [(ngModel)]="sD.username"
+          class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
+          id="username"
+          placeholder="Enter user name"
+          type="text">
       </div>
     </div>
     <div class="col-12">
       <div class="field">
-        <label for="username">Login</label>
+        <label for="displayName">Display name</label>
         <input
+          [(ngModel)]="sD.displayName"
           class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
-          id="username"
-          placeholder="Enter login"
+          id="displayName"
+          placeholder="Enter display name"
           type="text">
       </div>
     </div>
@@ -35,6 +38,7 @@
       <div class="field">
         <label for="password">Password</label>
         <input
+          [(ngModel)]="sD.password"
           class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
           id="password"
           placeholder="Enter password"
@@ -45,12 +49,26 @@
       <div class="field">
         <label for="repassword">Repeat password</label>
         <input
+          [(ngModel)]="sD.repeatedpassword"
           class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
           id="repassword"
           placeholder="Repeat password"
           type="password">
       </div>
     </div>
+    <div class="col-12">
+      <div class="field">
+        <label for="email">Email</label>
+        <input
+        [(ngModel)]="sD.email"
+          class="text-ba0se text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
+          id="email"
+          placeholder="Enter email"
+          type="email">
+      </div>
+    </div>
+
+
   </div>
   <p-footer>
     <p-button (onClick)="onRegisterClick()"
