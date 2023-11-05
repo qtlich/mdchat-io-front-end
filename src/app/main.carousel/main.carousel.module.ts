@@ -10,6 +10,7 @@ import {CalendarModule} from "primeng/calendar";
 import {MainCarouselComponent} from "./main.carousel.component";
 import {CarouselModule} from "primeng/carousel";
 import {TagModule} from "primeng/tag";
+import {ProductService} from "./services/main.carousel.data.service";
 
 @NgModule({
             imports: [CommonModule,
@@ -19,9 +20,12 @@ import {TagModule} from "primeng/tag";
               ButtonModule,
               PanelModule,
               TooltipModule,
-              CalendarModule, CarouselModule, TagModule],
+              CalendarModule,
+              CarouselModule,
+              TagModule],
             declarations: [MainCarouselComponent],
-            exports: [MainCarouselComponent]
+            exports: [MainCarouselComponent],
+            providers: [ProductService]
           })
 export class MainCarouselModule
 {
