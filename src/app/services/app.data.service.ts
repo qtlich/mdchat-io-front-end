@@ -3,11 +3,13 @@ import {Observable, ReplaySubject} from "rxjs";
 import {MenuItem} from "primeng/api";
 import {AppRestService} from "./app.rest.service";
 import {isEmptyArray} from "../core/core.free.functions";
+import {BaseService} from "./base.service";
+import {GlobalBusService} from "./global/global.bus.service";
 
 @Injectable({
-  providedIn: "root"
-})
-export class AppDataService
+              providedIn: "root"
+            })
+export class AppDataService extends BaseService
 {
   private readonly _onLoadMenuSubject: ReplaySubject<MenuItem[]> = new ReplaySubject<MenuItem[]>(1);
 
@@ -23,15 +25,18 @@ export class AppDataService
 
   private __loadMenu(uid?: number): void
   {
-    this._rS.getMenu(uid).subscribe((data: MenuItem[]) =>
-      {
-        this._onLoadMenuSubject.next(!isEmptyArray(data) ? data : [])
-      },
-      error => console.log(error));
+
+    super.toDb(uid,
+               input => this._rS.getMenu(input),
+               data => this._onLoadMenuSubject.next(!isEmptyArray(data) ? data : []),
+               `Error load menu`);
   }
 
-  constructor(private _rS: AppRestService)
+  constructor(private _rS: AppRestService,
+              serviceBus: GlobalBusService)
   {
+    super(serviceBus);
+    this.loadMenu(0);
   }
 
 }

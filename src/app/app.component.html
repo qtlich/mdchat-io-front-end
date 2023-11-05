@@ -14,14 +14,19 @@
 <!--</div>-->
 
 <div class="grid">
-  <div class="col-10 "></div>
+  <div class="col-10 ">
+      <a href="/" class="top-nav-bar__home font-light">
+        <img img="./assets/reddit.png" style="width: 35px;">
+      </a>
+      <span style="text-decoration: none">MdChat</span>
+  </div>
   <div class="col-2 right-auto">
     <p-button label="Login" (onClick)="onShowSignInDialog()"></p-button>
     <p-button label="Register" (onClick)="onShowSignUpDialog()"></p-button>
   </div>
   <!-- BEGIN: Left side -->
   <div class="col-3">
-<!--    <p-panelMenu [model]="menuItems" [style]="{'width':'300px'}" [multiple]="true"></p-panelMenu>-->
+    <p-panelMenu [model]="menuItems" [style]="{'width':'300px'}" [multiple]="true"></p-panelMenu>
   </div>
   <!-- END: Left side -->
   <!-- BEGIN: Center side -->
